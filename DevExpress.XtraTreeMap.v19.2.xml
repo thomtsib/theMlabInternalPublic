@@ -116,6 +116,22 @@
         <para>One item can be selected at a time.</para>
       </summary>
     </member>
+    <member name="T:DevExpress.XtraTreeMap.FillStyleBase">
+      <summary>
+        <para>The base class for treemap fill styles.</para>
+      </summary>
+    </member>
+    <member name="E:DevExpress.XtraTreeMap.FillStyleBase.PropertyChanged">
+      <summary>
+        <para>Occurs after a property value has been changed.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeMap.FillStyleBase.ToString">
+      <summary>
+        <para>Gets the textual representation of the current <see cref="T:DevExpress.Utils.SuperToolTip"/>.</para>
+      </summary>
+      <returns>A string which specifies the tooltip&#39;s textual representation.</returns>
+    </member>
     <member name="T:DevExpress.XtraTreeMap.GradientColorizerMode">
       <summary>
         <para>Lists modes that define how to distribute a gradient across sunburst items.</para>
@@ -163,6 +179,28 @@
         <para>Returns a list of items from a data source that the group contains directly.</para>
       </summary>
       <value>The list of items from a data source.</value>
+    </member>
+    <member name="T:DevExpress.XtraTreeMap.HatchFillStyle">
+      <summary>
+        <para>Specifies the hatch fill style.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeMap.HatchFillStyle.#ctor">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeMap.HatchFillStyle"/> class.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.HatchFillStyle.Color2">
+      <summary>
+        <para>Gets or sets the second color used to hatch the treemap item background.</para>
+      </summary>
+      <value>A color used to hatch treemap items.</value>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.HatchFillStyle.HatchStyle">
+      <summary>
+        <para>Gets or sets the pattern used to hatch treemap items.</para>
+      </summary>
+      <value>A pattern that applies to items.</value>
     </member>
     <member name="T:DevExpress.XtraTreeMap.HierarchicalChartControlBase">
       <summary>
@@ -842,6 +880,24 @@
       </summary>
       <value>A <see cref="T:DevExpress.XtraTreeMap.Palette"/> object that is the YellowPalette palette.</value>
     </member>
+    <member name="T:DevExpress.XtraTreeMap.Palettes">
+      <summary>
+        <para>A class that allows you to access the list of predefined treemap palettes.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeMap.Palettes.GetNames">
+      <summary>
+        <para>Returns a list of built-in palettes&#39; names.</para>
+      </summary>
+      <returns>A list of palette names.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeMap.Palettes.GetPalette(System.String)">
+      <summary>
+        <para>Returns a palette by its name.</para>
+      </summary>
+      <param name="name">The palette name.</param>
+      <returns>The palette with the name you pass. Returns null (Nothing in Visual Basic) if a palette with the given name is not found.</returns>
+    </member>
     <member name="N:DevExpress.XtraTreeMap.Printing">
       <summary>
         <para></para>
@@ -1047,6 +1103,16 @@
       </summary>
       <param name="sender">The event source. This parameter identifies the <see cref="T:DevExpress.XtraTreeMap.HierarchicalChartControlBase"/> that raised the event.</param>
       <param name="e">The event data.</param>
+    </member>
+    <member name="T:DevExpress.XtraTreeMap.SolidFillStyle">
+      <summary>
+        <para>Specifies a fill style that paints treemap items with a solid color.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeMap.SolidFillStyle.#ctor">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeMap.SolidFillStyle"/> class.</para>
+      </summary>
     </member>
     <member name="T:DevExpress.XtraTreeMap.SunburstCenterLabel">
       <summary>
@@ -1713,6 +1779,41 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
         <para>The sunburst items are positioned counterclockwise.</para>
       </summary>
     </member>
+    <member name="T:DevExpress.XtraTreeMap.TreeMapAppearance">
+      <summary>
+        <para>Specifies the treemap appearance settings.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeMap.TreeMapAppearance.Assign(DevExpress.XtraTreeMap.TreeMapElement)">
+      <summary>
+        <para>Copies all settings from the <see cref="T:DevExpress.XtraTreeMap.TreeMapAppearance"/> object passed as the parameter.</para>
+      </summary>
+      <param name="obj">An <see cref="T:DevExpress.XtraTreeMap.TreeMapAppearance"/> object (which is the <see cref="T:DevExpress.XtraTreeMap.TreeMapElement"/> descendant) whose settings are assigned to the current object. If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.</param>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapAppearance.GroupStyle">
+      <summary>
+        <para>Returns the style of treemap groups.</para>
+      </summary>
+      <value>An object that provides settings for a treemap group&#39;s appearance.</value>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapAppearance.HighlightedLeafStyle">
+      <summary>
+        <para>Returns a style used to specify the appearance of highlighted treemap leaves.</para>
+      </summary>
+      <value>A treemap item style.</value>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapAppearance.LeafStyle">
+      <summary>
+        <para>Returns the style that applies to treemap leaves.</para>
+      </summary>
+      <value>The treemap item leaf style.</value>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapAppearance.SelectedLeafStyle">
+      <summary>
+        <para>Returns the style that applies to selected treemap leaves.</para>
+      </summary>
+      <value>The treemap item leaf style.</value>
+    </member>
     <member name="T:DevExpress.XtraTreeMap.TreeMapColorizerBase">
       <summary>
         <para>The base class for the TreeMap control&#39;s colorizers.</para>
@@ -1734,6 +1835,12 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       </summary>
       <value>The specific tree map colorizer type name.</value>
     </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapColorizerBase.ValueProvider">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
     <member name="T:DevExpress.XtraTreeMap.TreeMapControl">
       <summary>
         <para>Displays flat and hierarchical data by using nested rectangles. See TreeMap Control.</para>
@@ -1743,6 +1850,12 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       <summary>
         <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeMap.TreeMapControl"/> class with default settings.</para>
       </summary>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapControl.Appearance">
+      <summary>
+        <para>Provides access to the TreeMap Control&#39;s appearance settings.</para>
+      </summary>
+      <value>An object that specifies the treemap appearance settings.</value>
     </member>
     <member name="M:DevExpress.XtraTreeMap.TreeMapControl.CalcHitInfo(System.Drawing.Point)">
       <summary>
@@ -2196,7 +2309,7 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
         <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeMap.TreeMapItemGroupStyle"/> class with default settings.</para>
       </summary>
     </member>
-    <member name="M:DevExpress.XtraTreeMap.TreeMapItemGroupStyle.Assign(DevExpress.XtraTreeMap.TreeMapItemGroupStyle)">
+    <member name="M:DevExpress.XtraTreeMap.TreeMapItemGroupStyle.Assign(DevExpress.XtraTreeMap.TreeMapItemLeafStyle)">
       <summary>
         <para>Copies all settings from the <see cref="T:DevExpress.XtraTreeMap.TreeMapItemGroupStyle"/> object passed as the parameter.</para>
       </summary>
@@ -2254,11 +2367,29 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       </summary>
       <param name="style">An <see cref="T:DevExpress.XtraTreeMap.TreeMapItemLeafStyle"/> object (which is the <see cref="T:DevExpress.XtraTreeMap.TreeMapElement"/> descendant) whose settings are assigned to the current object. If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.</param>
     </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapItemLeafStyle.FillStyle">
+      <summary>
+        <para>Gets or sets the fill style for treemap leaves.</para>
+      </summary>
+      <value>The style used to fill treemap leaves.</value>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapItemLeafStyle.LabelAlignment">
+      <summary>
+        <para>Gets or sets the alignment for treemap item labels.</para>
+      </summary>
+      <value>The alignment of treemap labels.</value>
+    </member>
     <member name="P:DevExpress.XtraTreeMap.TreeMapItemLeafStyle.LabelVerticalAlignment">
       <summary>
         <para>Gets or sets the treemap leaf label&#39;s vertical alignment.</para>
       </summary>
       <value>The label&#39;s vertical alignment.</value>
+    </member>
+    <member name="P:DevExpress.XtraTreeMap.TreeMapItemLeafStyle.Padding">
+      <summary>
+        <para>Gets or sets the treemap leaf padding.</para>
+      </summary>
+      <value>An object that specifies the padding.</value>
     </member>
     <member name="P:DevExpress.XtraTreeMap.TreeMapItemLeafStyle.TextGlowColor">
       <summary>
@@ -2281,38 +2412,6 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
         <para>Returns the collection of tree map items contained in this storage.</para>
       </summary>
       <value>A <see cref="T:DevExpress.XtraTreeMap.TreeMapItemCollection"/> object containing <see cref="T:DevExpress.XtraTreeMap.TreeMapItem"/> objects.</value>
-    </member>
-    <member name="T:DevExpress.XtraTreeMap.TreeMapItemStyle">
-      <summary>
-        <para>A base class for style classes of different tree map item types.</para>
-      </summary>
-    </member>
-    <member name="M:DevExpress.XtraTreeMap.TreeMapItemStyle.#ctor">
-      <summary>
-        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeMap.TreeMapItemStyle"/> class with default settings.</para>
-      </summary>
-    </member>
-    <member name="M:DevExpress.XtraTreeMap.TreeMapItemStyle.#ctor(System.Drawing.Color,System.Drawing.Color,System.Drawing.Font,System.Windows.Forms.Padding,System.Drawing.Color)">
-      <summary>
-        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeMap.TreeMapItemStyle"/> with the specified parameters.</para>
-      </summary>
-      <param name="fill">The background color of a styled item.</param>
-      <param name="textColor">The text color of a styled item.</param>
-      <param name="font">The font of a styled item.</param>
-      <param name="padding">The padding of a styled item.</param>
-      <param name="borderColor">The border color of a styled item.</param>
-    </member>
-    <member name="P:DevExpress.XtraTreeMap.TreeMapItemStyle.LabelAlignment">
-      <summary>
-        <para>Gets or sets the label alignment.</para>
-      </summary>
-      <value>A <see cref="T:System.Drawing.StringAlignment"/> enumeration value.</value>
-    </member>
-    <member name="P:DevExpress.XtraTreeMap.TreeMapItemStyle.Padding">
-      <summary>
-        <para>Specifies the internal space between the tree map item content and its edge, in pixels.</para>
-      </summary>
-      <value>A <see cref="T:System.Windows.Forms.Padding"/> object, specifying the padding in pixels.</value>
     </member>
     <member name="T:DevExpress.XtraTreeMap.TreeMapLayoutAlgorithmBase">
       <summary>
