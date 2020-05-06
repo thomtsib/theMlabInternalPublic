@@ -1882,9 +1882,9 @@
     </member>
     <member name="P:DevExpress.Export.ExportSettings.EncodeCsvExecutableContent">
       <summary>
-        <para>Encodes potentially dangerous content prior to exporting it to the CSV format.</para>
+        <para>Gets or sets whether to encode the potentially dangerous content when it is exported to a CSV file.</para>
       </summary>
-      <value>One of the <see cref="T:DevExpress.Utils.DefaultBoolean"/> enumeration values.</value>
+      <value>True, to encode the potentially dangeorous content; otherwise, False. Default, to follow the default behavior.</value>
     </member>
     <member name="T:DevExpress.Export.ExportType">
       <summary>
@@ -16115,9 +16115,9 @@ When exporting to XLS and XLSX formats, the layout of control elements is retain
     </member>
     <member name="P:DevExpress.XtraPrinting.CsvExportOptions.EncodeExecutableContent">
       <summary>
-        <para>Encodes potentially dangerous content prior to exporting it to the CSV format.</para>
+        <para>Gets or sets whether to encode the potentially dangerous content from a control or document when it is exported to a CSV file.</para>
       </summary>
-      <value>One of the <see cref="T:DevExpress.Utils.DefaultBoolean"/> enumeration values.</value>
+      <value>True, to encode the potentially dangeorous content; otherwise, False. Default, to use the ExportSettings.EncodeCsvExecutableContent property value.</value>
     </member>
     <member name="P:DevExpress.XtraPrinting.CsvExportOptions.FollowReportLayout">
       <summary>

@@ -1083,7 +1083,7 @@
     </member>
     <member name="P:DevExpress.XtraEditors.BaseCheckedListBoxControl.ReadOnly">
       <summary>
-        <para>Gets or sets whether or not users can check or uncheck control items. Items remain selectable even when the  property is set to true.</para>
+        <para>Gets or sets whether or not users can check or uncheck control items. Items remain selectable even when the ReadOnly property is set to true.</para>
       </summary>
       <value>Specifies whether users are allowed to check and uncheck items.</value>
     </member>
@@ -1833,6 +1833,13 @@ This member is supported by individual descendant of the <see cref="T:DevExpress
         <para>Adds new items that represent elements of the specified enumeration to the control, allowing you to customize item descriptions.</para>
       </summary>
       <param name="displayTextConverter">A System.Converter delegate that generates item descriptions.</param>
+    </member>
+    <member name="M:DevExpress.XtraEditors.BaseListBoxControl.AddEnum``1(System.Converter{``0,System.String},System.Boolean)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="displayTextConverter"></param>
+      <param name="addEnumeratorIntegerValues"></param>
     </member>
     <member name="P:DevExpress.XtraEditors.BaseListBoxControl.AllowHtmlDraw">
       <summary>
@@ -3230,6 +3237,12 @@ This member is supported by individual descendant of the <see cref="T:DevExpress
         <para>Gets a value indicating whether a container needs to set focus to the editor when it works as an inplace control.</para>
       </summary>
       <value>true, if a container needs to set focus to the editor; otherwise, false.</value>
+    </member>
+    <member name="P:DevExpress.XtraEditors.ButtonEdit.MaskBoxHandlesButtonShortcuts">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
     </member>
     <member name="M:DevExpress.XtraEditors.ButtonEdit.PerformClick(DevExpress.XtraEditors.Controls.EditorButton)">
       <summary>
@@ -4844,6 +4857,12 @@ This member is supported by individual descendant of the <see cref="T:DevExpress
       <summary>
         <para>Initializes a new <see cref="T:DevExpress.XtraEditors.Container.EditorContainer"/> instance with default settings.</para>
       </summary>
+    </member>
+    <member name="P:DevExpress.XtraEditors.Container.EditorContainer.AllowTouchGestures">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
     </member>
     <member name="P:DevExpress.XtraEditors.Container.EditorContainer.BackColor">
       <summary>
@@ -7884,6 +7903,13 @@ A specific version of the addressed image is automatically chosen based on the a
       </summary>
       <param name="displayTextConverter">A System.Converter delegate that will generate item display captions.</param>
     </member>
+    <member name="M:DevExpress.XtraEditors.Controls.ImageComboBoxItemCollection.AddEnum``1(System.Converter{``0,System.String},System.Boolean)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="displayTextConverter"></param>
+      <param name="addEnumeratorIntegerValues"></param>
+    </member>
     <member name="M:DevExpress.XtraEditors.Controls.ImageComboBoxItemCollection.AddImages(System.Object)">
       <summary>
         <para>Retrieves images from the target image list, assigned to either the <see cref="P:DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox.SmallImages"/> or <see cref="P:DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox.LargeImages"/> property.</para>
@@ -8442,6 +8468,13 @@ A specific version of the addressed image is automatically chosen based on the a
         <para>Populates this <see cref="T:DevExpress.XtraEditors.Controls.ListBoxItemCollection"/> with items generated from values of the specific enumeration and replaces default item descriptions. This overload should be used only for the <see cref="T:DevExpress.XtraEditors.Controls.ListBoxItemCollection"/> class descendants.</para>
       </summary>
       <param name="displayTextConverter">A Delegate that encapsulates a method which replaces generated items&#39; captions. This parameter is not in effect when the method is called for <see cref="T:DevExpress.XtraEditors.ListBoxControl"/> objects, since their child items do not have the Value-Description property pair.</param>
+    </member>
+    <member name="M:DevExpress.XtraEditors.Controls.ListBoxItemCollection.AddEnum``1(System.Converter{``0,System.String},System.Boolean)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="displayTextConverter"></param>
+      <param name="addEnumeratorIntegerValues"></param>
     </member>
     <member name="M:DevExpress.XtraEditors.Controls.ListBoxItemCollection.AddRange(System.Object[])">
       <summary>
@@ -9747,12 +9780,12 @@ A specific version of the addressed image is automatically chosen based on the a
     </member>
     <member name="F:DevExpress.XtraEditors.Controls.SearchMode.AutoSearch">
       <summary>
-        <para>The editor unlocks its text box and allows users to type in text. Data source records that match this text are shown in the drop-down panel.Handle the editor  event to fine-tune the search.</para>
+        <para>The editor unlocks its text box and allows users to type in text. Data source records that match this text are shown in the drop-down panel.Handle the editor AutoSearch event to fine-tune the search.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest">
       <summary>
-        <para>The editor fires the  event that you should handle to assign an asynchronous Task. This task must check the user text currently entered into the editor&#39;s text box, and return a collection of matching items. These items are shown in the editor&#39;s drop-down panel.</para>
+        <para>The editor fires the AutoSuggest event that you should handle to assign an asynchronous Task. This task must check the user text currently entered into the editor&#39;s text box, and return a collection of matching items. These items are shown in the editor&#39;s drop-down panel.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraEditors.Controls.SearchMode.OnlyInPopup">
@@ -13949,7 +13982,7 @@ A specific version of the addressed image is automatically chosen based on the a
     </member>
     <member name="F:DevExpress.XtraEditors.DateTimeFunctionsShowMode.Default">
       <summary>
-        <para>if Version Compatibility is set to version 19.1 or newer; otherwise, .</para>
+        <para>Advanced if Version Compatibility is set to version 19.1 or newer; otherwise, Standard.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraEditors.DateTimeFunctionsShowMode.Never">
@@ -14607,71 +14640,11 @@ A specific version of the addressed image is automatically chosen based on the a
       </summary>
       <value>A DevExpress.XtraEditors.Filtering.FilterControlViewInfo object.</value>
     </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetAggregateSvgImageByType(System.String)">
-      <summary>
-        <para>Returns a default SVG image used by an aggregate filter menu item (see the <see cref="P:DevExpress.XtraEditors.FilterControl.AllowAggregateEditing"/> property).</para>
-      </summary>
-      <param name="sType">A String value that specifies the menu item caption.</param>
-      <returns>An SvgImage object that is the aggregate filter menu item image.</returns>
-    </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetClauseImageByType(DevExpress.Skins.ISkinProvider,System.String)">
-      <summary>
-        <para>Retrieves icons used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for specific filtering clauses in the specific skin.</para>
-      </summary>
-      <param name="skinProvider">A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object that specifies a skin for which clause icons should be retrieved.</param>
-      <param name="sType">A String value that specifies the clause for which an icon needs to be returned.</param>
-      <returns>An Icon used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for a given clause.</returns>
-    </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetClauseImageByType(DevExpress.Skins.ISkinProvider,System.String,DevExpress.Utils.Drawing.ObjectState)">
-      <summary>
-        <para>Retrieves icons used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for specific filtering clauses in the specific skin.</para>
-      </summary>
-      <param name="skinProvider">A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object that specifies a skin for which a clause icon should be retrieved.</param>
-      <param name="sType">A String value that specifies the clause for which an icon needs to be returned.</param>
-      <param name="state">An ObjectState enumeration value that specifies the state (normal, hovered, pressed, etc.) for which a clause icon should be retrieved.</param>
-      <returns>An Image used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for a given clause.</returns>
-    </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetClauseImageByType(System.String)">
-      <summary>
-        <para>Retrieves icons used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for specific clauses.</para>
-      </summary>
-      <param name="sType">A String value that specifies the clause for which an icon needs to be returned.</param>
-      <returns>An Icon used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for a given clause.</returns>
-    </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetClauseImageByType(System.String,DevExpress.Utils.Design.ISvgPaletteProvider)">
-      <summary>
-        <para>Retrieves icons used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for specific filtering clauses in the specific skin palette.</para>
-      </summary>
-      <param name="sType">A String value that specifies the clause for which an icon needs to be returned.</param>
-      <param name="provider">An ISvgPaletteProvider that colorizes SVG icons depending on the currently applied DevExpress skin.</param>
-      <returns>An Image used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for a given clause.</returns>
-    </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetClauseSvgImageByType(System.String)">
-      <summary>
-        <para>Returns the vector icon used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for a specific filtering clause.</para>
-      </summary>
-      <param name="sType">A String value that specifies the clause for which an icon needs to be returned.</param>
-      <returns>A DevExpress.Utils.Svg.SvgImage object that is the vector icon used by <see cref="T:DevExpress.XtraEditors.FilterControl"/> for a specific filtering clause.</returns>
-    </member>
     <member name="M:DevExpress.XtraEditors.FilterControl.GetDefaultColumn">
       <summary>
         <para>Gets the default column used to create a new filter in the Filter Control.</para>
       </summary>
       <returns>The default filter column.</returns>
-    </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetGroupSvgImageByType(System.String)">
-      <summary>
-        <para>Retrieves the default SVG icon for an item within a menu that the <see cref="T:DevExpress.XtraEditors.FilterControl"/> shows when end-users change group conditions.</para>
-      </summary>
-      <param name="sType">A String value that specifies the button whose vector icon is to be retrieved.</param>
-      <returns>An SvgImage object that is the vector icon for the <see cref="T:DevExpress.XtraEditors.FilterControl"/> group condition menu item.</returns>
-    </member>
-    <member name="M:DevExpress.XtraEditors.FilterControl.GetSvgImageByFunctionType(System.String)">
-      <summary>
-        <para></para>
-      </summary>
-      <param name="sType"></param>
-      <returns></returns>
     </member>
     <member name="E:DevExpress.XtraEditors.FilterControl.InitNode">
       <summary>
@@ -17355,17 +17328,17 @@ In <see cref="F:DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnHotTrack"/
     </member>
     <member name="E:DevExpress.XtraEditors.LookUpEdit.AutoSearch">
       <summary>
-        <para>Fires when the editor SearchMode property is set to . In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.LookUpEdit"/> class description to learn more.</para>
+        <para>Fires only when the editor SearchMode property equals AutoSearch. In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.LookUpEdit"/> class description to learn more.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.LookUpEdit.AutoSearchComplete">
       <summary>
-        <para></para>
+        <para>Fires when a search in <see cref="F:DevExpress.XtraEditors.Controls.SearchMode.AutoSearch"/> mode completes.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.LookUpEdit.AutoSuggest">
       <summary>
-        <para>Fires when you set the SearchMode property to AutoSuggest. In this mode, the editor runs the asynchronous Task assigned in the event handler to retrieve a list of drop-down panel items. See the <see cref="T:DevExpress.XtraEditors.LookUpEdit"/> class description for more information.</para>
+        <para>Fires only when the SearchMode property equals AutoSuggest. In this mode, the editor runs the asynchronous Task assigned in the event handler to retrieve a list of drop-down panel items. See the <see cref="T:DevExpress.XtraEditors.LookUpEdit"/> class description for more information.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.LookUpEdit.AutoSuggestComplete">
@@ -21405,6 +21378,13 @@ The DefaultBoolean.Default value is equivalent to DefaultBoolean.True if the sta
       </summary>
       <param name="displayTextConverter">A System.Converter delegate that generates item display captions.</param>
     </member>
+    <member name="M:DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit.AddEnum``1(System.Converter{``0,System.String},System.Boolean)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="displayTextConverter"></param>
+      <param name="addEnumeratorIntegerValues"></param>
+    </member>
     <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit.AllowHtmlDraw">
       <summary>
         <para>Gets or sets whether HTML tags can be used to format the text of the control&#39;s items.</para>
@@ -23297,6 +23277,13 @@ In bound mode, this method populates the item collection before returning it.</p
       </summary>
       <param name="displayTextConverter">A Delegate that encapsulates a method which replaces generated items&#39; captions.</param>
     </member>
+    <member name="M:DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox.AddEnum``1(System.Converter{``0,System.String},System.Boolean)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="displayTextConverter"></param>
+      <param name="addEnumeratorIntegerValues"></param>
+    </member>
     <member name="M:DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox.AddImages(System.Object)">
       <summary>
         <para>Adds image items to the <see cref="T:DevExpress.XtraEditors.ImageComboBoxEdit"/>.</para>
@@ -23502,7 +23489,7 @@ In bound mode, this method populates the item collection before returning it.</p
     </member>
     <member name="E:DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit.AutoSearch">
       <summary>
-        <para>Fires when the editor SearchMode property is set to . In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.LookUpEdit"/> class description to learn more.</para>
+        <para>Fires when the editor SearchMode property is set to AutoSearch. In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.LookUpEdit"/> class description to learn more.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit.AutoSearchColumnIndex">
@@ -23513,7 +23500,7 @@ In bound mode, this method populates the item collection before returning it.</p
     </member>
     <member name="E:DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit.AutoSearchComplete">
       <summary>
-        <para></para>
+        <para>Fires when a search in <see cref="F:DevExpress.XtraEditors.Controls.SearchMode.AutoSearch"/> mode completes.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit.AutoSuggest">
@@ -30840,6 +30827,12 @@ Always equal to true.</para>
       </summary>
       <value>Specifies whether HTML tags are accepted.</value>
     </member>
+    <member name="P:DevExpress.XtraEditors.XtraBaseArgs.AllowTrimCaption">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
     <member name="P:DevExpress.XtraEditors.XtraBaseArgs.AutoCloseOptions">
       <summary>
         <para>Provides access to settings that allow the shown object (XtraMessageBox, XtraInputBox, etc.) to automatically close after a certain delay.</para>
@@ -31334,7 +31327,7 @@ Always equal to true.</para>
       <summary>
         <para>Gets or sets whether input boxes use the default or custom look and feel settings.</para>
       </summary>
-      <value>if input boxes use the custom look and feel settings;  if the default look and feel settings are used.</value>
+      <value>true if input boxes use the custom look and feel settings; false if the default look and feel settings are used.</value>
     </member>
     <member name="P:DevExpress.XtraEditors.XtraInputBox.ButtonsAlignment">
       <summary>
@@ -31347,7 +31340,7 @@ Always equal to true.</para>
         <para>Displays an input box with the specified settings.</para>
       </summary>
       <param name="args">An <see cref="T:DevExpress.XtraEditors.XtraInputBoxArgs"/> object that comprises dialog box settings.</param>
-      <returns>If <see cref="F:System.Windows.Forms.DialogResult.OK"/> or <see cref="F:System.Windows.Forms.DialogResult.Yes"/> is clicked, an <see cref="T:System.Object"/> that is the editor&#39;s value. Otherwise,  ( in VB).</returns>
+      <returns>If <see cref="F:System.Windows.Forms.DialogResult.OK"/> or <see cref="F:System.Windows.Forms.DialogResult.Yes"/> is clicked, an <see cref="T:System.Object"/> that is the editor&#39;s value. Otherwise, null (Nothing in VB).</returns>
     </member>
     <member name="M:DevExpress.XtraEditors.XtraInputBox.Show(System.String,System.String,System.String)">
       <summary>

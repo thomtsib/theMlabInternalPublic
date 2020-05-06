@@ -2304,15 +2304,15 @@ A specific version of the addressed image is automatically chosen, based on the 
     </member>
     <member name="P:DevExpress.XtraBars.BarEditItem.AutoFillWidth">
       <summary>
-        <para>Gets or sets a value specifying whether the width of links corresponding to this <see cref="T:DevExpress.XtraBars.BarEditItem"/> is automatically increased to fill the owning bar row in its entirety.</para>
+        <para>Gets or sets whether links to this <see cref="T:DevExpress.XtraBars.BarEditItem"/> are automatically stretched to fill all available free space in the bar.</para>
       </summary>
-      <value>true, if the links corresponding to this item are automatically enlarged to fill the width of the owning bar row; otherwise false.</value>
+      <value>true, if links to this <see cref="T:DevExpress.XtraBars.BarEditItem"/> are automatically stretched to fill all available free space in the bar; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraBars.BarEditItem.AutoFillWidthInMenu">
       <summary>
-        <para>Gets or sets whether this <see cref="T:DevExpress.XtraBars.BarEditItem"/>&#39;s editor should be resized to fit the menu width or use its own width settings.</para>
+        <para>Gets or sets whether links to this <see cref="T:DevExpress.XtraBars.BarEditItem"/> are stretched to fit the menu width.</para>
       </summary>
-      <value>A <see cref="T:DevExpress.Utils.DefaultBoolean"/> enumerator value that specifies whether this <see cref="T:DevExpress.XtraBars.BarEditItem"/> editor should be resized to fit the menu width or use its own width settings.</value>
+      <value><see cref="F:DevExpress.Utils.DefaultBoolean.True"/>, if the item is stretched up to the menu width; <see cref="F:DevExpress.Utils.DefaultBoolean.False"/>, if the item uses its width settings; <see cref="F:DevExpress.Utils.DefaultBoolean.Default"/>, if the behavior is inherited from the parent menu.</value>
     </member>
     <member name="P:DevExpress.XtraBars.BarEditItem.AutoHideEdit">
       <summary>
@@ -2404,15 +2404,15 @@ A specific version of the addressed image is automatically chosen, based on the 
     </member>
     <member name="P:DevExpress.XtraBars.BarEditItem.MaxWidth">
       <summary>
-        <para></para>
+        <para>Gets or sets the item&#39;s maximum width.</para>
       </summary>
-      <value></value>
+      <value>An integer value that specifies the item&#39;s minimum width.</value>
     </member>
     <member name="P:DevExpress.XtraBars.BarEditItem.MinWidth">
       <summary>
-        <para></para>
+        <para>Gets or sets the item&#39;s minimum width.</para>
       </summary>
-      <value></value>
+      <value>An integer value that specifies the item&#39;s minimum width.</value>
     </member>
     <member name="E:DevExpress.XtraBars.BarEditItem.ShowingEditor">
       <summary>
@@ -2452,7 +2452,7 @@ A specific version of the addressed image is automatically chosen, based on the 
       <summary>
         <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.</para>
       </summary>
-      <value></value>
+      <value>For internal use.</value>
     </member>
     <member name="T:DevExpress.XtraBars.BarEditItemLink">
       <summary>
@@ -2542,15 +2542,15 @@ A specific version of the addressed image is automatically chosen, based on the 
     </member>
     <member name="P:DevExpress.XtraBars.BarEditItemLink.MaxWidth">
       <summary>
-        <para></para>
+        <para>Gets the maximum width of the current item link.</para>
       </summary>
-      <value></value>
+      <value>The current item link&#39;s maximum width, in pixels.</value>
     </member>
     <member name="P:DevExpress.XtraBars.BarEditItemLink.MinWidth">
       <summary>
         <para>Gets the minimum width of the current item link.</para>
       </summary>
-      <value>The current item link&#39;s width, in pixels.</value>
+      <value>The current item link&#39;s minimum width, in pixels.</value>
     </member>
     <member name="M:DevExpress.XtraBars.BarEditItemLink.PostEditor">
       <summary>
@@ -3291,7 +3291,7 @@ A specific version of the addressed image is automatically chosen based on the a
       <summary>
         <para>Gets or sets whether the bar item can be found using the ribbon search menu.</para>
       </summary>
-      <value>, if this bar item can be found using the ribbon search menu; otherwise, .</value>
+      <value>true, if this bar item can be found using the ribbon search menu; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraBars.BarItem.VisibleWhenVertical">
       <summary>
@@ -7021,6 +7021,32 @@ Merge-related toolbars of inactive child forms are visible in these forms, and a
         <para>Occurs whenever the <see cref="P:DevExpress.XtraBars.BarToggleSwitchItem.BindableChecked"/> property changes its value.</para>
       </summary>
     </member>
+    <member name="M:DevExpress.XtraBars.BarToggleSwitchItem.BindCommand(System.Linq.Expressions.Expression{System.Action},System.Object,System.Func{System.Object})">
+      <summary>
+        <para>Uses the command selector to find an appropriate parameterized command of the target type in the source and binds it to this <see cref="T:DevExpress.XtraBars.BarToggleSwitchItem"/>.</para>
+      </summary>
+      <param name="commandSelector">An Expression that selects the appropriate command from the source object.</param>
+      <param name="source">An Object (typically, a ViewModel) where the commandSelector looks for the required command.</param>
+      <param name="queryCommandParameter">A Func delegate that passes the specific Object to the command as a parameter.</param>
+      <returns>An IDisposable object. Disposing of this object unbinds the command from this <see cref="T:DevExpress.XtraBars.BarToggleSwitchItem"/>.</returns>
+    </member>
+    <member name="M:DevExpress.XtraBars.BarToggleSwitchItem.BindCommand(System.Object,System.Func{System.Object})">
+      <summary>
+        <para>Binds the specific parameterized command to this <see cref="T:DevExpress.XtraBars.BarToggleSwitchItem"/>.</para>
+      </summary>
+      <param name="command">An Object that is the command to be bound to this <see cref="T:DevExpress.XtraBars.BarToggleSwitchItem"/>.</param>
+      <param name="queryCommandParameter">A Func delegate that passes the specific Object to the command as a parameter.</param>
+      <returns>An IDisposable object. Disposing of this object unbinds the command from this <see cref="T:DevExpress.XtraBars.BarToggleSwitchItem"/>.</returns>
+    </member>
+    <member name="M:DevExpress.XtraBars.BarToggleSwitchItem.BindCommand``1(System.Linq.Expressions.Expression{System.Action{``0}},System.Object,System.Func{``0})">
+      <summary>
+        <para>Uses the command selector to find an appropriate parameterized command in the source and binds it to this <see cref="T:DevExpress.XtraBars.BarToggleSwitchItem"/>.</para>
+      </summary>
+      <param name="commandSelector">An Expression that selects the appropriate command from the source object.</param>
+      <param name="source">An Object (typically, a ViewModel) where the commandSelector looks for the required command.</param>
+      <param name="queryCommandParameter">A Func delegate that passes the specific Object to the command as a parameter.</param>
+      <returns>An IDisposable object. Disposing of this object unbinds the command from this <see cref="T:DevExpress.XtraBars.BarToggleSwitchItem"/>.</returns>
+    </member>
     <member name="P:DevExpress.XtraBars.BarToggleSwitchItem.Checked">
       <summary>
         <para>Gets or sets whether the item is checked.</para>
@@ -7443,7 +7469,7 @@ Merge-related toolbars of inactive child forms are visible in these forms, and a
       <summary>
         <para>Gets or sets whether or not panels can dock to the middle of the DockManager&#39;s parent container (Form or UserControl).</para>
       </summary>
-      <value>The DefaultBoolean enumerator value that specifies whether or not this DockManager allows docking its panels to the container center. The DefaultBoolean.Default value is equivalent for DefaultBoolean.True.</value>
+      <value>The DefaultBoolean enumerator value that specifies whether or not this DockManager allows docking its panels to the container center. The DefaultBoolean.Default value is equivalent to DefaultBoolean.True.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Docking.DockingOptions.AllowRestoreToAutoHideContainer">
       <summary>
@@ -7547,7 +7573,7 @@ Merge-related toolbars of inactive child forms are visible in these forms, and a
     </member>
     <member name="F:DevExpress.XtraBars.Docking.DockingStyle.Fill">
       <summary>
-        <para>The dock panel is contained within another panel (split or tab container).It&#39;s not possible to make a dock panel fill the form (user control).</para>
+        <para>The dock panel occupies the center of another panel (split or tab container) or form/user control.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraBars.Docking.DockingStyle.Float">
@@ -7621,7 +7647,7 @@ Merge-related toolbars of inactive child forms are visible in these forms, and a
     </member>
     <member name="M:DevExpress.XtraBars.Docking.DockManager.AddPanel(DevExpress.XtraBars.Docking.DockingStyle)">
       <summary>
-        <para>Creates a new dock panel and docks it to the form (user control) using the specified style.</para>
+        <para>Creates a new dock panel and docks it to the form (user control) using the specified dock style.</para>
       </summary>
       <param name="dock">The <see cref="T:DevExpress.XtraBars.Docking.DockingStyle"/> value specifying how the created panel is docked to the container control.</param>
       <returns>A <see cref="T:DevExpress.XtraBars.Docking.DockPanel"/> object created by this method.</returns>
@@ -19382,9 +19408,9 @@ The Default value is equivalent to ScrollUp.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Navigation.AccordionControl.GroupHeight">
       <summary>
-        <para>Gets or sets the header height common to all groups (elements whose <see cref="P:DevExpress.XtraBars.Navigation.AccordionControlElement.Style"/> is set to <see cref="F:DevExpress.XtraBars.Navigation.ElementStyle.Group"/>).</para>
+        <para>Gets or sets the minimum header height for all groups (elements whose <see cref="P:DevExpress.XtraBars.Navigation.AccordionControlElement.Style"/> is set to <see cref="F:DevExpress.XtraBars.Navigation.ElementStyle.Group"/>) in the control.</para>
       </summary>
-      <value>An Int32 value that is the header height common to all group elements within this <see cref="T:DevExpress.XtraBars.Navigation.AccordionControl"/>.</value>
+      <value>An integer value that specifies the minimum height.</value>
     </member>
     <member name="E:DevExpress.XtraBars.Navigation.AccordionControl.HasContentContainer">
       <summary>
@@ -19428,9 +19454,9 @@ The Default value is equivalent to ScrollUp.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Navigation.AccordionControl.ItemHeight">
       <summary>
-        <para>Gets or sets the header height common to all items (elements whose <see cref="P:DevExpress.XtraBars.Navigation.AccordionControlElement.Style"/> is set to <see cref="F:DevExpress.XtraBars.Navigation.ElementStyle.Item"/>).</para>
+        <para>Gets or sets the minimum header height for all items (elements whose <see cref="P:DevExpress.XtraBars.Navigation.AccordionControlElement.Style"/> is set to <see cref="F:DevExpress.XtraBars.Navigation.ElementStyle.Item"/>) in the control.</para>
       </summary>
-      <value>The header height, common to all items.</value>
+      <value>An integer value that specifies the minimum height.</value>
     </member>
     <member name="M:DevExpress.XtraBars.Navigation.AccordionControl.LockUpdate">
       <summary>
@@ -19910,9 +19936,9 @@ The DefaultBoolean.Default value is equivalent to DefaultBoolean.True if the sta
     </member>
     <member name="P:DevExpress.XtraBars.Navigation.AccordionControlElementBase.Height">
       <summary>
-        <para>Gets or sets the element header height.</para>
+        <para>Gets or sets the minimum header height.</para>
       </summary>
-      <value>The element header height.</value>
+      <value>A value that specifies the minimum height.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Navigation.AccordionControlElementBase.Hint">
       <summary>
@@ -21596,9 +21622,9 @@ that was automatically created when the <see cref="P:DevExpress.XtraBars.Navigat
     </member>
     <member name="P:DevExpress.XtraBars.Navigation.OptionsMinimizing.ElementHeight">
       <summary>
-        <para></para>
+        <para>Gets or sets the minimum header height for all elements in the control in the collapsed state.</para>
       </summary>
-      <value></value>
+      <value>An integer value that specifies the minimum height.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Navigation.OptionsMinimizing.FooterHeight">
       <summary>
@@ -21865,6 +21891,12 @@ See Navigation Frame and Tab Pane.</para>
       <summary>
         <para>Hides the currently displayed dropdown window.</para>
       </summary>
+    </member>
+    <member name="M:DevExpress.XtraBars.Navigation.TileBar.HideDropDownWindow(System.Boolean)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="immediate"></param>
     </member>
     <member name="P:DevExpress.XtraBars.Navigation.TileBar.IndentBetweenGroups">
       <summary>
@@ -28630,7 +28662,7 @@ This option is in effect when a custom control is embedded into the gallery grou
       <summary>
         <para>Provides access to the bar item that represents the search box. For internal use.</para>
       </summary>
-      <value>A  object that represents the search box.</value>
+      <value>A RibbonSearchEditItem object that represents the search box.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Ribbon.RibbonControl.SearchItemShortcut">
       <summary>
@@ -28642,7 +28674,7 @@ This option is in effect when a custom control is embedded into the gallery grou
       <summary>
         <para>Provides access to the repository item that represents the search box. For internal use.</para>
       </summary>
-      <value>A  object that represents the search box.</value>
+      <value>A RepositoryItemRibbonSearchEdit object that represents the search box.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Ribbon.RibbonControl.SelectedPage">
       <summary>
@@ -28775,7 +28807,7 @@ This option is in effect when a custom control is embedded into the gallery grou
       <summary>
         <para>Gets or sets whether to display the search box that allows a user to find a bar item by its caption.</para>
       </summary>
-      <value>, to display the search box; otherwise, .</value>
+      <value>true, to display the search box; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraBars.Ribbon.RibbonControl.ShowToolbarCustomizeItem">
       <summary>
@@ -29078,7 +29110,7 @@ This option is in effect when a custom control is embedded into the gallery grou
     </member>
     <member name="P:DevExpress.XtraBars.Ribbon.RibbonForm.NavigationControl">
       <summary>
-        <para>Gets or sets the side navigation control for this Ribbon Form. The side navigation control is displayed below all other controls, and must have its  property set to either Left or Right.</para>
+        <para>Gets or sets the side navigation control for this Ribbon Form. The side navigation control is displayed below all other controls, and must have its Dock property set to either Left or Right.</para>
       </summary>
       <value>The navigation control for this form.</value>
     </member>
@@ -33072,6 +33104,13 @@ This image is shown when the notification has the Generic template applied.</par
       <summary>
         <para>Raised when a notification is not shown due to an error, and allows you to specify whether to throw exceptions that caused notification showing to end prematurely.</para>
       </summary>
+    </member>
+    <member name="M:DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager.GetNotificationByID(System.Object)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="id"></param>
+      <returns></returns>
     </member>
     <member name="E:DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager.Hidden">
       <summary>

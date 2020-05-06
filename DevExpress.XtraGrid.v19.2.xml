@@ -41,17 +41,17 @@
     </member>
     <member name="E:DevExpress.XtraEditors.GridLookUpEdit.AutoSearch">
       <summary>
-        <para>Fires when the editor SearchMode property is set to . In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.GridLookUpEdit"/> class description to learn more.</para>
+        <para>Fires only when the editor SearchMode property equals AutoSearch. In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.GridLookUpEdit"/> class description to learn more.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.GridLookUpEdit.AutoSearchComplete">
       <summary>
-        <para></para>
+        <para>Fires when a search in <see cref="F:DevExpress.XtraEditors.Repository.GridLookUpSearchMode.AutoSearch"/> mode completes.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.GridLookUpEdit.AutoSuggest">
       <summary>
-        <para>Fires when you set the SearchMode property to AutoSuggest. In this mode, the editor runs the asynchronous Task assigned in the event handler to retrieve a list of drop-down panel items. See the <see cref="T:DevExpress.XtraEditors.GridLookUpEdit"/> class description for more information.</para>
+        <para>Fires only when the SearchMode property equals AutoSuggest. In this mode, the editor runs the asynchronous Task assigned in the event handler to retrieve a list of drop-down panel items. See the <see cref="T:DevExpress.XtraEditors.GridLookUpEdit"/> class description for more information.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.GridLookUpEdit.AutoSuggestComplete">
@@ -109,6 +109,31 @@
         <para>Contains classes representing repository items that store editor-specific settings.</para>
       </summary>
     </member>
+    <member name="T:DevExpress.XtraEditors.Repository.GridLookUpSearchMode">
+      <summary>
+        <para>Enumerates values that specify how the editor looks for values that fit the query entered in the edit box.</para>
+      </summary>
+    </member>
+    <member name="F:DevExpress.XtraEditors.Repository.GridLookUpSearchMode.AutoComplete">
+      <summary>
+        <para>The editor looks for values that start with the entered query and automatically selects the first row that fits the query.The query is compared against values in the <see cref="P:DevExpress.XtraEditors.Repository.RepositoryItemLookUpEditBase.DisplayMember"/> data source field.The completed value is automatically assigned to the <see cref="P:DevExpress.XtraEditors.BaseEdit.EditValue"/> property.</para>
+      </summary>
+    </member>
+    <member name="F:DevExpress.XtraEditors.Repository.GridLookUpSearchMode.AutoSearch">
+      <summary>
+        <para>The editor looks for values that contain the entered query, filters the drop-down list, and highlights the found query.To assign a value to the <see cref="P:DevExpress.XtraEditors.BaseEdit.EditValue"/> property, the user should select a row and press Enter or double-click it.The <see cref="P:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.TextEditStyle"/> property is automatically set to <see cref="F:DevExpress.XtraEditors.Controls.TextEditStyles.Standard"/> in this mode.</para>
+      </summary>
+    </member>
+    <member name="F:DevExpress.XtraEditors.Repository.GridLookUpSearchMode.AutoSuggest">
+      <summary>
+        <para>The editor fires the <see cref="E:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.AutoSuggest"/> event that allows you to provide custom suggestions in the drop-drop list.This mode is suitable if the editor is not bound to a data source.The <see cref="P:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.TextEditStyle"/> property is automatically set to <see cref="F:DevExpress.XtraEditors.Controls.TextEditStyles.Standard"/> in this mode.</para>
+      </summary>
+    </member>
+    <member name="F:DevExpress.XtraEditors.Repository.GridLookUpSearchMode.None">
+      <summary>
+        <para>The editor does not automatically complete the query.</para>
+      </summary>
+    </member>
     <member name="T:DevExpress.XtraEditors.Repository.GridLookUpViewType">
       <summary>
         <para>Lists the types of Views that can be used within a <see cref="T:DevExpress.XtraEditors.GridLookUpEdit"/> control.</para>
@@ -163,18 +188,18 @@
     </member>
     <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.AutoComplete">
       <summary>
-        <para>Gets or sets whether the automatic completion feature is enabled</para>
+        <para>Gets or sets whether the editor predicts the value that the user is typing and automatically applies that value. This property is obsolete, use <see cref="P:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.SearchMode"/> instead.</para>
       </summary>
-      <value>true if the automatic completion feature is enabled; otherwise, false.</value>
+      <value>true, if the editor predicts the value that the user is typing and automatically applies that value; otherwise, false.</value>
     </member>
     <member name="E:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.AutoSearch">
       <summary>
-        <para>Fires when the editor SearchMode property is set to . In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.GridLookUpEdit"/> class description to learn more.</para>
+        <para>Fires when the editor SearchMode property is set to AutoSearch. In this mode, the editor filters out data source records that do not match the currently entered text, and displays remaining records in the drop-down panel. The AutoSearch event is optional, it allows you to fine-tune the search. See the <see cref="T:DevExpress.XtraEditors.GridLookUpEdit"/> class description to learn more.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.AutoSearchComplete">
       <summary>
-        <para></para>
+        <para>Fires when a search in <see cref="F:DevExpress.XtraEditors.Repository.GridLookUpSearchMode.AutoSearch"/> mode completes.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.AutoSuggest">
@@ -249,9 +274,9 @@
     </member>
     <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.SearchMode">
       <summary>
-        <para></para>
+        <para>Gets or sets whether the editor automatically completes the value, filters the drop-down list, or provides custom suggestions when the user types a query in the edit box.</para>
       </summary>
-      <value></value>
+      <value>A value that specifies the editor behavior when the user types a query in the edit box.</value>
     </member>
     <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit.ServerMode">
       <summary>
@@ -7434,7 +7459,7 @@ The DefaultBoolean.Default value is equivalent to DefaultBoolean.True if the sta
     </member>
     <member name="E:DevExpress.XtraGrid.Views.Base.ColumnView.ColumnFilterChanged">
       <summary>
-        <para>Occurs when a column&#39;s filter condition changes.</para>
+        <para>Occurs when a column&#39;s filter condition changes. This event also raises when the Find Panel finishes its search.</para>
       </summary>
     </member>
     <member name="E:DevExpress.XtraGrid.Views.Base.ColumnView.ColumnPositionChanged">
@@ -11572,6 +11597,35 @@ In server mode, this option is not in effect.</para>
       <param name="sender">The event source. Identifies the View that raised the event.</param>
       <param name="e">A <see cref="T:DevExpress.XtraGrid.Views.Grid.CellMergeEventArgs"/> object that contains event data.</param>
     </member>
+    <member name="T:DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs">
+      <summary>
+        <para>Provides data for the <see cref="E:DevExpress.XtraGrid.Views.Grid.GridView.ClipboardRowCopying"/> event.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs.Cancel">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
+    <member name="P:DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs.Headers">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
+    <member name="P:DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs.Type">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
+    <member name="P:DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs.Values">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
     <member name="T:DevExpress.XtraGrid.Views.Grid.ClipboardRowPastingEventArgs">
       <summary>
         <para>Provides data for the <see cref="E:DevExpress.XtraGrid.Views.Grid.GridView.ClipboardRowPasting"/> event.</para>
@@ -13996,9 +14050,9 @@ This option is in effect when the <see cref="P:DevExpress.XtraGrid.Views.Grid.Gr
     </member>
     <member name="P:DevExpress.XtraGrid.Views.Grid.GridView.ClipboardDataProvider">
       <summary>
-        <para></para>
+        <para>Gets an object that provides data for the clipboard in a variety of formats (plain text, plain unicode text, rich text, CSV, Biff8, HTML).</para>
       </summary>
-      <value></value>
+      <value>An object that provides data for the clipboard in a variety of formats (plain text, plain unicode text, rich text, CSV, Biff8, HTML).</value>
     </member>
     <member name="E:DevExpress.XtraGrid.Views.Grid.GridView.ClipboardRowCopying">
       <summary>
@@ -19364,6 +19418,126 @@ This value is used to initialize the <see cref="P:DevExpress.XtraGrid.Views.Prin
         <para>Gets or sets whether the current row must not be printed/exported.</para>
       </summary>
       <value>true if the current row must not be printed/exported; otherwise, false.</value>
+    </member>
+    <member name="T:DevExpress.XtraGrid.Views.Printing.ClipboardRowCopyingEventArgsExtensions">
+      <summary>
+        <para>Provides extension methods for the <see cref="T:DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs"/> class.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.ClipboardRowCopyingEventArgsExtensions.WithBandHeaders(DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs,System.Action{DevExpress.XtraGrid.Views.Printing.ClipboardHeaderInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.ClipboardRowCopyingEventArgsExtensions.WithColumnHeader(DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs,System.Action{DevExpress.XtraGrid.Views.Printing.ClipboardHeaderInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.ClipboardRowCopyingEventArgsExtensions.WithGroup(DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs,System.Action{DevExpress.XtraGrid.Views.Printing.ClipboardValueInfo})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.ClipboardRowCopyingEventArgsExtensions.WithGroupSummary(DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs,System.Action{DevExpress.XtraGrid.Views.Printing.ClipboardValueInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.ClipboardRowCopyingEventArgsExtensions.WithRow(DevExpress.XtraGrid.Views.Grid.ClipboardRowCopyingEventArgs,System.Action{DevExpress.XtraGrid.Views.Printing.ClipboardValueInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="T:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider">
+      <summary>
+        <para>Provides data for the clipboard in a variety of formats (plain text, rich text, plain unicode text, CSV, Biff8, HTML).</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.#ctor(DevExpress.XtraExport.Helpers.ClipboardExportManagerBase{DevExpress.XtraGrid.Views.Printing.ColumnImplementer,DevExpress.XtraGrid.Views.Printing.DataRowImplementer})">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider"/> class with specified settings. For internal use.</para>
+      </summary>
+      <param name="manager">The clipboard manager. For internal use.</param>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetCsvData(DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the CSV format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the CSV format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetData(DevExpress.XtraExport.Helpers.ClipboardDataFormat,DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the specified format(s).</para>
+      </summary>
+      <param name="format">A combination of values that specify data formats.</param>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>An object that specifies data that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetData(DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in all supported formats.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>An object that specifies data that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetExcelData(DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in Microsoft Excel&#39;s binary file format (BIFF).</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>An object that provides a stream for data that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetHtmlData(DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the HTML format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the HTML format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetRichTextData(DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the rich text format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the rich text format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetTextData(DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the plain text format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the plain text format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProvider.GetUnicodeTextData(DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the plain unicode text format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the plain unicode text format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="T:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions">
+      <summary>
+        <para>Contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions.#ctor(System.Boolean,System.Boolean)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraGrid.Views.Printing.GridClipboardDataProviderOptions"/> class with specified settings.</para>
+      </summary>
+      <param name="copyColumnHeaders">true, to copy column headers to the clipboard; otherwise, false.</param>
+      <param name="copyCollapsedData">true, to copy collapsed groups to the clipboard; otherwise, false.</param>
     </member>
     <member name="T:DevExpress.XtraGrid.Views.Printing.PrintRowEventArgs">
       <summary>

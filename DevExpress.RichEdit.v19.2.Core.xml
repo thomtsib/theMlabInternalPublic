@@ -12973,6 +12973,12 @@ Example: I, II, III</para>
       </summary>
       <value>A <see cref="T:System.Single"/> value that specifies the distance in current measure units.</value>
     </member>
+    <member name="P:DevExpress.XtraRichEdit.API.Native.TextBox.RotateTextWithShape">
+      <summary>
+        <para>Gets or sets whether to rotate the text box content with the text box.</para>
+      </summary>
+      <value>true, to rotate text with shape; otherwise, false.</value>
+    </member>
     <member name="T:DevExpress.XtraRichEdit.API.Native.TextBoxSizeRule">
       <summary>
         <para>Specifies interpretation of the rule used to determine the height of a text box.</para>
@@ -29816,9 +29822,9 @@ Example: I, II, III</para>
     </member>
     <member name="P:DevExpress.XtraRichEdit.Export.PlainTextDocumentExporterOptions.ExportListLevelSeparator">
       <summary>
-        <para></para>
+        <para>Gets or sets whether to export a numbering list level separator (a character that follows the number or bullet symbol).</para>
       </summary>
-      <value></value>
+      <value>true, to export the list separator mark; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.Export.PlainTextDocumentExporterOptions.FieldCodeEndMarker">
       <summary>

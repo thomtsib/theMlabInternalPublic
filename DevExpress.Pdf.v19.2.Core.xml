@@ -5652,6 +5652,12 @@
       <param name="pageNumber">An integer value that specifies the page number where the signature should be added.</param>
       <param name="signatureBounds">A <see cref="T:DevExpress.Pdf.PdfRectangle"/> object that represents the signature bounds in the default  user space.</param>
     </member>
+    <member name="P:DevExpress.Pdf.PdfSignature.AnnotationFlags">
+      <summary>
+        <para>Gets or sets the signature&#39;s characteristics.</para>
+      </summary>
+      <value>A set of annotation flags.</value>
+    </member>
     <member name="P:DevExpress.Pdf.PdfSignature.ContactInfo">
       <summary>
         <para>Specifies the contact information which helps a recipient to verify the signature provided by the signer.</para>

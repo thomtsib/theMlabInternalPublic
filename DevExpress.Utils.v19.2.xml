@@ -2694,6 +2694,12 @@ The DefaultBoolean.Default value is equivalent to DefaultBoolean.True if the sta
       </summary>
       <returns>A <see cref="T:System.Drawing.Color"/> object representing the end color of the linear gradient brush as specified by the appearance object&#39;s settings.</returns>
     </member>
+    <member name="M:DevExpress.Utils.AppearanceObject.GetBackColorAppearance">
+      <summary>
+        <para></para>
+      </summary>
+      <returns></returns>
+    </member>
     <member name="M:DevExpress.Utils.AppearanceObject.GetBackPen(DevExpress.Utils.Drawing.GraphicsCache)">
       <summary>
         <para>Gets the pen used to draw the element&#39;s background lines and curves.</para>
@@ -9807,6 +9813,12 @@ For the <see cref="T:DevExpress.Utils.SharedImageCollection"/>, this property sp
         <para>Gets or sets whether the text is directed from right to left.</para>
       </summary>
       <value>true, if the text is directed from right to left; otherwise, false.</value>
+    </member>
+    <member name="M:DevExpress.Utils.TextOptions.SetHAlignmentCore(DevExpress.Utils.HorzAlignment)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="horzAlignment"></param>
     </member>
     <member name="M:DevExpress.Utils.TextOptions.SetHotKeyPrefix(DevExpress.Utils.HKeyPrefix)">
       <summary>

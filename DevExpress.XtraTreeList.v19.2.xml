@@ -397,6 +397,35 @@ This constant is used to initialize the <see cref="P:DevExpress.XtraEditors.Repo
       <param name="sender">The event sender (typically the <see cref="T:DevExpress.XtraTreeList.TreeList"/> control).</param>
       <param name="e">A <see cref="T:DevExpress.XtraTreeList.CellValueChangedEventArgs"/> object that contains data related to the event.</param>
     </member>
+    <member name="T:DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs">
+      <summary>
+        <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.ClipboardNodeCopying"/> event.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs.Cancel">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
+    <member name="P:DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs.Headers">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
+    <member name="P:DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs.Type">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
+    <member name="P:DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs.Values">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
     <member name="T:DevExpress.XtraTreeList.ClipboardNodePastingEventArgs">
       <summary>
         <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.ClipboardNodePasting"/> event.</para>
@@ -4044,7 +4073,7 @@ By using <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> class method
     </member>
     <member name="M:DevExpress.XtraTreeList.Nodes.TreeListNode.GetValue(System.Object)">
       <summary>
-        <para>Returns the value for a specific column, or  if no column with such columnID was found.</para>
+        <para>Returns the value for a specific column, or null if no column with such columnID was found.</para>
       </summary>
       <param name="columnID">An object that identifies a column (a <see cref="T:DevExpress.XtraTreeList.Columns.TreeListColumn"/> object, field name, column&#39;s absolute index or corresponding DataColumn object).</param>
       <returns>The value of a specific column.</returns>
@@ -4422,6 +4451,138 @@ By using <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> class method
       </summary>
       <param name="sender">The event source. This parameter identifies the <see cref="T:DevExpress.XtraTreeList.TreeList"/> which raised the event.</param>
       <param name="e">A <see cref="T:DevExpress.XtraTreeList.PopupMenuShowingEventArgs"/> object which contains event data.</param>
+    </member>
+    <member name="N:DevExpress.XtraTreeList.Printing">
+      <summary>
+        <para></para>
+      </summary>
+    </member>
+    <member name="T:DevExpress.XtraTreeList.Printing.ClipboardNodeCopyingEventArgsExtensions">
+      <summary>
+        <para>Provides extension methods for the <see cref="T:DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs"/> class.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.ClipboardNodeCopyingEventArgsExtensions.WithBandHeaders(DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs,System.Action{DevExpress.XtraTreeList.Printing.ClipboardHeaderInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.ClipboardNodeCopyingEventArgsExtensions.WithColumnHeader(DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs,System.Action{DevExpress.XtraTreeList.Printing.ClipboardHeaderInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.ClipboardNodeCopyingEventArgsExtensions.WithGroup(DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs,System.Action{DevExpress.XtraTreeList.Printing.ClipboardValueInfo})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.ClipboardNodeCopyingEventArgsExtensions.WithGroupSummary(DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs,System.Action{DevExpress.XtraTreeList.Printing.ClipboardValueInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.ClipboardNodeCopyingEventArgsExtensions.WithRow(DevExpress.XtraTreeList.ClipboardNodeCopyingEventArgs,System.Action{DevExpress.XtraTreeList.Printing.ClipboardValueInfoCollection})">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="args"></param>
+      <param name="action"></param>
+    </member>
+    <member name="T:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider">
+      <summary>
+        <para>Provides data for the clipboard in a variety of formats (plain text, plain unicode text, rich text, CSV, Biff8, HTML).</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.#ctor(DevExpress.XtraExport.Helpers.ClipboardExportManagerBase{DevExpress.XtraTreeList.Printing.TreeListColumnImplementer,DevExpress.XtraTreeList.Printing.TreeListNodeImplementer})">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider"/> class with specified settings. For internal use.</para>
+      </summary>
+      <param name="manager">The clipboard manager. For internal use.</param>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetCsvData(DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the CSV format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the CSV format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetData(DevExpress.XtraExport.Helpers.ClipboardDataFormat,DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the specified format(s).</para>
+      </summary>
+      <param name="format">A combination of values that specify data formats.</param>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>An object that specifies data that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetData(DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in all supported formats.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>An object that specifies data that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetExcelData(DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in Microsoft Excel&#39;s binary file format (BIFF).</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>An object that provides a stream for data that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetHtmlData(DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the HTML format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the HTML format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetRichTextData(DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the rich text format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the rich text format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetTextData(DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the plain text format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the plain text format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProvider.GetUnicodeTextData(DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions)">
+      <summary>
+        <para>Returns data for the clipboard in the plain unicode text format.</para>
+      </summary>
+      <param name="options">An object that contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</param>
+      <returns>A string value that specifies data in the plain unicode text format that should be passed to the clipboard.</returns>
+    </member>
+    <member name="T:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions">
+      <summary>
+        <para>Contains a set of options that specify whether to copy column headers, collapsed groups, and other elements to the clipboard.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions.#ctor(System.Boolean,System.Boolean,System.Boolean)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions"/> class with specified settings.</para>
+      </summary>
+      <param name="copyColumnHeaders">true, to copy column headers to the clipboard; otherwise, false.</param>
+      <param name="copyCollapsedData">true, to copy collapsed nodes to the clipboard; otherwise, false.</param>
+      <param name="copyNodeHierarchy">true, to copy the tree hierarchy (indents) to the clipboard; otherwise, false.</param>
+    </member>
+    <member name="P:DevExpress.XtraTreeList.Printing.TreeListClipboardDataProviderOptions.CopyNodeHierarchy">
+      <summary>
+        <para>Gets or sets whether to copy the tree hierarchy (indents) to the clipboard.</para>
+      </summary>
+      <value>true, to copy the tree hierarchy (indents) to the clipboard; otherwise, false.</value>
     </member>
     <member name="T:DevExpress.XtraTreeList.ScrollVisibility">
       <summary>
@@ -5315,9 +5476,9 @@ This property is obsolete. Use the <see cref="P:DevExpress.XtraTreeList.TreeList
     </member>
     <member name="P:DevExpress.XtraTreeList.TreeList.ClipboardDataProvider">
       <summary>
-        <para></para>
+        <para>Gets an object that provides data for the clipboard in a variety of formats (plain text, plain unicode text, rich text, CSV, Biff8, HTML).</para>
       </summary>
-      <value></value>
+      <value>An object that provides data for the clipboard in a variety of formats (plain text, plain unicode text, rich text, CSV, Biff8, HTML).</value>
     </member>
     <member name="E:DevExpress.XtraTreeList.TreeList.ClipboardNodeCopying">
       <summary>
@@ -5422,7 +5583,7 @@ This property is obsolete. Use the <see cref="P:DevExpress.XtraTreeList.TreeList
     </member>
     <member name="M:DevExpress.XtraTreeList.TreeList.CopyNode(DevExpress.XtraTreeList.Nodes.TreeListNode,DevExpress.XtraTreeList.Nodes.TreeListNode,System.Boolean)">
       <summary>
-        <para>Copies the specified node to the specified node&#39;s child collection.</para>
+        <para>Copies the specified node to the specified node&#39;s child collection. This method does not update the data source and is intended for use in unbound mode.</para>
       </summary>
       <param name="sourceNode">A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node to be copied.</param>
       <param name="destinationNode">A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node to whose child collection the node is copied.</param>
@@ -5431,7 +5592,7 @@ This property is obsolete. Use the <see cref="P:DevExpress.XtraTreeList.TreeList
     </member>
     <member name="M:DevExpress.XtraTreeList.TreeList.CopyNode(DevExpress.XtraTreeList.Nodes.TreeListNode,DevExpress.XtraTreeList.Nodes.TreeListNode,System.Boolean,System.Boolean)">
       <summary>
-        <para>Copies the specified node to the specified node&#39;s child collection.</para>
+        <para>Copies the specified node to the specified node&#39;s child collection. This method does not update the data source and is intended for use in unbound mode.</para>
       </summary>
       <param name="sourceNode">A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node to be copied.</param>
       <param name="destinationNode">A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node to whose child collection the node is copied.</param>
@@ -5441,7 +5602,7 @@ This property is obsolete. Use the <see cref="P:DevExpress.XtraTreeList.TreeList
     </member>
     <member name="M:DevExpress.XtraTreeList.TreeList.CopyNode(DevExpress.XtraTreeList.Nodes.TreeListNode,DevExpress.XtraTreeList.Nodes.TreeListNode,System.Boolean,System.Boolean,System.Int32)">
       <summary>
-        <para>Copies the specified node to the specified node&#39;s child collection.</para>
+        <para>Copies the specified node to the specified node&#39;s child collection. This method does not update the data source and is intended for use in unbound mode.</para>
       </summary>
       <param name="sourceNode">A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node to be copied.</param>
       <param name="destinationNode">A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node to whose child collection the node is copied.</param>
@@ -5452,7 +5613,7 @@ This property is obsolete. Use the <see cref="P:DevExpress.XtraTreeList.TreeList
     </member>
     <member name="M:DevExpress.XtraTreeList.TreeList.CopyNodes(System.Collections.Generic.IEnumerable{DevExpress.XtraTreeList.Nodes.TreeListNode},DevExpress.XtraTreeList.Nodes.TreeListNode,System.Boolean,System.Boolean,System.Int32)">
       <summary>
-        <para>Copies the specified nodes to the specified node&#39;s child collection.</para>
+        <para>Copies the specified nodes to the specified node&#39;s child collection. This method does not update the data source and is intended for use in unbound mode.</para>
       </summary>
       <param name="sourceNodes">A collection of <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> objects representing the nodes to be copied.</param>
       <param name="destinationNode">A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node to whose child collection the node is copied.</param>
@@ -9112,9 +9273,15 @@ The DefaultBoolean.Default value is equivalent to DefaultBoolean.True if the sta
       </summary>
       <value>true if the collapsed nodes are automatically expanded if match the filter criteria; otherwise, false.</value>
     </member>
+    <member name="P:DevExpress.XtraTreeList.TreeListOptionsFilter.FilterEditorUseMenuForOperandsAndOperators">
+      <summary>
+        <para></para>
+      </summary>
+      <value></value>
+    </member>
     <member name="P:DevExpress.XtraTreeList.TreeListOptionsFilter.FilterMode">
       <summary>
-        <para>Gets or sets whether to show only the filtered nodes or also show their parent and child nodes.</para>
+        <para>Gets or sets whether to show only the filtered nodes or also show their parent and child nodes. Additionally, you can enable the ExpandNodesOnFiltering property to automatically expand filtered nodes.</para>
       </summary>
       <value>A <see cref="T:DevExpress.XtraTreeList.FilterMode"/> enumeration value that specifies how filtered nodes are shown.</value>
     </member>

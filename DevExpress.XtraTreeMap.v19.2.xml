@@ -530,6 +530,19 @@
       </summary>
       <value>The text color.</value>
     </member>
+    <member name="T:DevExpress.XtraTreeMap.IColorizerValueProvider">
+      <summary>
+        <para>The interface that should be implemented by classes used to provide colorizers with values. Colorizer uses these values to determine item colors.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraTreeMap.IColorizerValueProvider.GetValue(DevExpress.TreeMap.IHierarchicalItem,System.Int32)">
+      <summary>
+        <para>Returns a value based on an item and its index.</para>
+      </summary>
+      <param name="item">A treemap/sunburst item.</param>
+      <param name="itemIndex">An item index.</param>
+      <returns>A value that the colorizer uses to determine an item color.</returns>
+    </member>
     <member name="T:DevExpress.XtraTreeMap.InsideRectangularBorder">
       <summary>
         <para>Contains the inside border settings of rectangular elements within a TreeMap control.</para>
@@ -1837,9 +1850,9 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     </member>
     <member name="P:DevExpress.XtraTreeMap.TreeMapColorizerBase.ValueProvider">
       <summary>
-        <para></para>
+        <para>Gets or sets a provider of values the colorizer uses to determine colors for treemap items.</para>
       </summary>
-      <value></value>
+      <value>An object of a class that implements the <see cref="T:DevExpress.XtraTreeMap.IColorizerValueProvider"/> interface.</value>
     </member>
     <member name="T:DevExpress.XtraTreeMap.TreeMapControl">
       <summary>
